@@ -11,7 +11,7 @@ describe('New Account form verification', function () {
         $('[name="lastname"]').setValue('TestAccountLastName');
         $('[name="country_code"]').selectByValue('US');
         $('[name="zone_code"]').selectByValue('CA');
-        $('#box-create-account [name="email"]').setValue('Testemail_6@emaol.com'); //ToDo: implement some random email generation
+        $('#box-create-account [name="email"]').setValue('Testemail_7@emaol.com'); //ToDo: implement some random email generation
         $('#box-create-account [name="password"]').setValue('testPasswd');
         $('#box-create-account [name="confirmed_password"]').setValue('testPasswd');
         $('[name="create_account"]').click();
@@ -27,7 +27,7 @@ describe('New Account form verification', function () {
         $('[name="lastname"]').setValue('TestAccountLastName');
         $('[name="country_code"]').selectByValue('US');
         $('[name="zone_code"]').selectByValue('CA');
-        $('#box-create-account [name="email"]').setValue('Testemail_6@emaol.com'); //ToDo: implement some random email generation
+        $('#box-create-account [name="email"]').setValue('Testemail_7@emaol.com'); //ToDo: implement some random email generation
         $('#box-create-account [name="password"]').setValue('testPasswd');
         $('#box-create-account [name="confirmed_password"]').setValue('testPasswd');
         $('[name="create_account"]').click();
