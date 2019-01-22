@@ -1,5 +1,5 @@
-process.env.TS_NODE_FILES = true
-require('ts-node').register()
+process.env.TS_NODE_FILES = true;
+require('ts-node').register();
 
 exports.config = {
     specs: [
@@ -9,7 +9,8 @@ exports.config = {
     path: '/',
     services: ['chromedriver'],
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'chrome',
+        maxInstances: 1
     }],
     sync: true,
     logLevel: 'silent',
@@ -20,4 +21,4 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd'
     }
-}
+};
