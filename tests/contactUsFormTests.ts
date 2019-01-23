@@ -6,9 +6,9 @@ import {expect} from "chai";
 //Negative tests for http://ip-5236.sunline.net.ua:38015/customer-service-s-0
 // ToDo: move tests to separate file
 
-describe('Contact Us form verification', function () {
+describe('Contact Us form verification', () => {
 
-    it('Verify ability to send a message through Contact Us form', function () {
+    it('Verify ability to send a message through Contact Us form', () => {
         browser.url('/customer-service-s-0');
         $('[name="name"]').setValue('TestName');
         $('#box-contact-us [name="email"]').setValue('Testemail@emaol.com');
@@ -23,7 +23,7 @@ describe('Contact Us form verification', function () {
     });
 
 
-    it('Verify validators by attempting to send an empty required fields through Contact Us form', function () {
+    it('Verify validators by attempting to send an empty required fields through Contact Us form', () => {
         browser.url('/customer-service-s-0');
 
         $('[name="name"]').clearElement();
