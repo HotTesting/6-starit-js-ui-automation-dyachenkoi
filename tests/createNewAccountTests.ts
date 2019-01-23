@@ -21,7 +21,6 @@ describe('New Account form verification', () => {
     // const loggedUser = '//*[@class="account dropdown"]/a/text()';
     // const confirmationText = '//*[@id="notices"]/div/text()';
 
-
     it('Verify ability to create an account', () => {
 
         browser.url('/create_account');
