@@ -3,7 +3,7 @@ require('ts-node').register();
 
 exports.config = {
     specs: [
-        './tests/**/*.ts'
+        './tests/**/e2e_orderPlacement.ts'
     ],
     port: '9515',
     path: '/',
@@ -19,6 +19,7 @@ exports.config = {
     baseUrl: 'http://ip-5236.sunline.net.ua:38015',
     framework: 'mocha',
     mochaOpts: {
-        ui: 'bdd'
+        ui: 'bdd',
+        timeout: 10000
     }
 };

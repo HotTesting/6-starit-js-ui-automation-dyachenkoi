@@ -7,7 +7,7 @@ describe('New Account form verification', () => {
 
     const userName = 'Testemail_' + (Math.random() * 101) + '@email.com';
     const password = 'testPasswd';
-    const newAccountFields = {
+    const newAccount = {
         firstname: '[name="firstname"]',
         lastname: '[name="lastname"]',
         country: '[name="country_code"]',
@@ -18,38 +18,40 @@ describe('New Account form verification', () => {
         create: '[name="create_account"]'
     };
     const okAlert = '.alert-success i';
-    // const loggedUser = '//*[@class="account dropdown"]/a/text()';
-    // const confirmationText = '//*[@id="notices"]/div/text()';
+    const loggedUser = '//*[@class="account dropdown"]/a/text()';
+
 
     it('Verify ability to create an account', () => {
 
         browser.url('/create_account');
-        $(newAccountFields.firstname).setValue('TestAccountFName');
-        $(newAccountFields.lastname).setValue('TestAccountLastName');
-        $(newAccountFields.country).selectByValue('US');
-        $(newAccountFields.zone).selectByValue('CA');
-        $(newAccountFields.email).setValue(userName);
-        $(newAccountFields.password).setValue(password);
-        $(newAccountFields.passwordConfirmed).setValue(password);
-        $(newAccountFields.create).click();
+        $(newAccount.firstname).setValue('TestAccountFName');
+        $(newAccount.lastname).setValue('TestAccountLastName');
+        $(newAccount.country).selectByValue('US');
+        $(newAccount.zone).selectByValue('CA');
+        $(newAccount.email).setValue(userName);
+        $(newAccount.password).setValue(password);
+        $(newAccount.passwordConfirmed).setValue(password);
+        $(newAccount.create).click();
 
         expect($(okAlert).isVisible()).to.be.true;
-        // expect(confirmationText.getText()).is.contain('Your customer account has been created.');
-        // const alertText = loggedUser.getText();
+        const confirmationText = '//*[@id="notices"]/div/text()';
+        expect($(confirmationText).getText()).to.contain('Your customer account has been created.');
+
+        // const alertText = ;
         // expect(loggedUser).to.equal(newAccountFields.firstname);
         expect($('.alert-danger i').isVisible()).to.be.false;
     });
 
     it('Verify that the same customer cannot be created', () => {
         browser.url('/create_account');
-        $(newAccountFields.firstname).setValue('TestAccountFName');
-        $(newAccountFields.lastname).setValue('TestAccountLastName');
-        $(newAccountFields.country).selectByValue('US');
-        $(newAccountFields.zone).selectByValue('CA');
-        $(newAccountFields.email).setValue(userName);
-        $(newAccountFields.password).setValue(password);
-        $(newAccountFields.passwordConfirmed).setValue(password);
-        $(newAccountFields.create).click();
+        $(newAccount.firstname).setValue('TestAccountFName');
+        $(newAccount.lastname).setValue('TestAccountLastName');
+        $(newAccount.country).selectByValue('US');
+        $(newAccount.zone).selectByValue('CA');
+        $(newAccount.email).setValue(userName);
+        $(newAccount.password).setValue(password);
+        $(newAccount.passwordConfirmed).setValue(password);
+        $(newAccount.create).click();
 
         expect($('.alert-success i').isVisible()).to.be.false;
         expect($('.alert-danger i').isVisible()).to.be.true;
